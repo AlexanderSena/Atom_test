@@ -1,5 +1,13 @@
 from bs4 import BeautifulSoup
 import requests
 
-with open('simple.html') as html_file:
-    soup = BeautifulSoup(html_file, 'lxml')
+source = requests.get('https://space.skyrocket.de/doc_chr/lau2018.htm').text
+
+#base = source.content
+
+soup = BeautifulSoup(source, 'lxml')
+
+for article in soup.find_all('a'):
+    headline = article.text
+    print(headline)
+    print()

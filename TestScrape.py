@@ -6,6 +6,7 @@ with open('simple.html') as html_file:
 
 #print(soup.prettify())
 
+
 for article in soup.find_all('div', class_='article'):
 #print(article)
     headline = article.h2.a.text
